@@ -1,0 +1,172 @@
+Project Idea: Simple C++ Project with Makefile and CMake
+Project Overview:
+Create a small C++ project that consists of a few source files. The project will use a Makefile to automate the build process, and you'll also set up a CMakeLists file to achieve the same result using CMake. This will allow you to see how both systems work and the differences between them.
+
+Project Structure:
+src/ directory containing C++ source files (main.cpp, math_functions.cpp).
+include/ directory containing header files (math_functions.h).
+Makefile and CMakeLists.txt in the root directory.
+Step-by-Step Guide:
+1. Set Up the Project Structure
+Create the following directory structure:
+
+css
+Copy code
+my_project/
+│
+├── src/
+│   ├── main.cpp
+│   └── math_functions.cpp
+│
+├── include/
+│   └── math_functions.h
+│
+├── Makefile
+└── CMakeLists.txt
+2. Write the C++ Code
+main.cpp:
+
+cpp
+Copy code
+#include <iostream>
+#include "math_functions.h"
+
+int main() {
+    int a = 5, b = 3;
+    std::cout << "Addition: " << add(a, b) << std::endl;
+    std::cout << "Subtraction: " << subtract(a, b) << std::endl;
+    return 0;
+}
+math_functions.h:
+
+cpp
+Copy code
+#ifndef MATH_FUNCTIONS_H
+#define MATH_FUNCTIONS_H
+
+int add(int a, int b);
+int subtract(int a, int b);
+
+#endif // MATH_FUNCTIONS_H
+math_functions.cpp:
+
+cpp
+Copy code
+#include "math_functions.h"
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+This code is straightforward: it defines two basic math functions (add and subtract) and uses them in the main.cpp file.
+
+3. Create the Makefile
+Makefile:
+
+Makefile
+Copy code
+# Compiler
+CXX = g++
+
+# Compiler flags
+CXXFLAGS = -Iinclude
+
+# Source files
+SRCS = src/main.cpp src/math_functions.cpp
+
+# Object files
+OBJS = $(SRCS:.cpp=.o)
+
+# Output executable
+TARGET = my_program
+
+# Rule to build the target
+$(TARGET): $(OBJS)
+	$(CXX) $(OBJS) -o $(TARGET)
+
+# Rule to build object files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Clean rule
+clean:
+	rm -f $(OBJS) $(TARGET)
+Makefile Explanation:
+CXX: Specifies the C++ compiler (g++ in this case).
+CXXFLAGS: Compiler flags; -Iinclude tells the compiler to look in the include/ directory for header files.
+SRCS: The source files to compile.
+OBJS: The object files that result from compiling the source files. The %.o: %.cpp rule automates this.
+TARGET: The final executable file.
+$(TARGET): $(OBJS): This is the rule to link the object files into the final executable.
+clean: A convenience rule to remove all compiled files.
+4. Create the CMakeLists.txt File
+CMakeLists.txt:
+
+cmake
+Copy code
+# Minimum CMake version required
+cmake_minimum_required(VERSION 3.10)
+
+# Project name
+project(MyProject)
+
+# Specify the C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# Add the include directory
+include_directories(include)
+
+# Add the executable
+add_executable(my_program src/main.cpp src/math_functions.cpp)
+CMakeLists.txt Explanation:
+cmake_minimum_required: Specifies the minimum version of CMake that is required.
+project: Defines the project name.
+set(CMAKE_CXX_STANDARD 11): Ensures the C++11 standard is used.
+include_directories: Tells CMake where to find header files.
+add_executable: Specifies the output executable and the source files that make it up.
+5. Building the Project
+Using the Makefile:
+
+Navigate to the project directory and run:
+sh
+Copy code
+make
+This will compile the code and produce an executable named my_program.
+Using CMake:
+
+First, create a build directory:
+sh
+Copy code
+mkdir build
+cd build
+Run CMake to generate the build system:
+sh
+Copy code
+cmake ..
+Then build the project:
+sh
+Copy code
+cmake --build .
+This will compile the code and produce an executable named my_program in the build/ directory.
+6. Clean Up
+With Makefile, run:
+
+sh
+Copy code
+make clean
+This will remove the object files and the executable.
+
+With CMake, simply delete the build/ directory to clean up.
+
+Learning Points:
+Makefile: You'll understand the basics of compiling C++ code, defining rules, and automating the build process.
+CMake: You'll learn how to write a CMakeLists.txt file, which is crucial for more complex projects, especially those that need to be portable across different platforms.
+Variables: Both Makefiles and CMake use variables to manage paths, flags, and filenames. This project will introduce you to how these variables work and how to customize them.
+Next Steps:
+Explore More CMake Features: CMake is very powerful and supports various configurations like adding libraries, linking dependencies, and generating build files for different platforms.
+Extend the Project: Add more features, such as linking with external libraries or adding unit tests, to deepen your understanding.
+This small project will give you a solid understanding of both Makefiles and CMakeLists, equipping you with essential skills for working on C/C++ projects. If you need further clarification or run into any issues, feel free to ask!

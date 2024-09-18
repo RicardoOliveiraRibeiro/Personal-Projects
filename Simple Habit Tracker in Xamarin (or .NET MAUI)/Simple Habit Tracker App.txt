@@ -1,0 +1,24 @@
+3. Mobile Development with Xamarin (or .NET MAUI)
+Workload: Mobile Development with .NET
+Language: C#
+
+Project Idea: Simple Habit Tracker App
+A habit tracker app is a great way to demonstrate mobile development skills. It’s simple but involves working with mobile-specific features.
+
+Features:
+
+Track daily habits (e.g., exercise, reading).
+View progress with a calendar or chart.
+Set reminders or notifications for habits.
+Sync data to a cloud service (like Firebase or Azure).
+Libraries:
+
+Xamarin.Essentials: For accessing native device features (like notifications).
+SQLite-net: For local data storage.
+SkiaSharp: For custom drawing (like charts or progress bars).
+Project Breakdown:
+
+UI Design: Use XAML to design the mobile app interface. Focus on creating a clean, user-friendly design.
+Data Management: Store habits and tracking data locally using SQLite.
+Notifications: Use Xamarin.Essentials to trigger reminders for habits.
+Optional Enhancements: Add cloud syncing for cross-device support.

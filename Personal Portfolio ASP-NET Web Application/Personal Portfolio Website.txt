@@ -1,0 +1,24 @@
+2. ASP.NET Core Web Application
+Workload: ASP.NET and Web Development
+Language: C#
+
+Project Idea: Personal Portfolio Website
+A personal portfolio website is not only a great learning project but also something you can host and show to potential employers.
+
+Features:
+
+Home page with an introduction and a summary of your skills.
+A projects page to showcase all the projects (including the one we’re building now!).
+A contact form that sends emails to your address.
+Blog section where you can write posts about your learning journey.
+Libraries:
+
+Entity Framework Core: For managing a database to store your blog posts and project details.
+Bootstrap: For responsive design (you can use a NuGet package or link to the CDN).
+MailKit: For handling the email functionality from the contact form.
+Project Breakdown:
+
+Frontend: Use Razor Pages or MVC for generating the HTML. Add some CSS (with Bootstrap) to make it look good.
+Backend: Implement a simple CRUD system for blog posts using Entity Framework Core. Set up controllers to handle requests.
+Database: Use SQLite or SQL Server for storing your data.
+Deployment: Host the website on Azure or another hosting service.

@@ -1,0 +1,25 @@
+1. .NET Console Application (C#)
+Workload: .NET Desktop Development
+Language: C#
+
+Project Idea: Command-Line Todo List Application
+A command-line Todo List application is a great starting project. It’s simple, yet it allows you to demonstrate your understanding of key concepts like input/output, data storage, and basic algorithms.
+
+Features:
+
+Add, remove, and list todo items.
+Mark items as complete or incomplete.
+Save todo items to a file (to persist data between sessions).
+Optionally, add tags or due dates to items.
+Libraries:
+
+Newtonsoft.Json: For saving the todo list as a JSON file. It’s a very common library in .NET for handling JSON data.
+System.IO: For handling file operations to read and write the todo list to the filesystem.
+Project Breakdown:
+
+User Interface: Since it’s a console app, the UI will be text-based. Simple menus and prompts will guide the user.
+Data Structure: Use a List<T> to store the todo items, where T is a class representing a Todo item (e.g., with properties for Title, Completed, DueDate, etc.).
+Persistence: Implement basic file handling to save and load the todo list from a JSON file. This will introduce you to serialization/deserialization in C#.
+Optional Enhancements:
+Add sorting or filtering options (e.g., view by due date).
+Use regular expressions for advanced parsing of commands (like "add Buy milk due tomorrow").
